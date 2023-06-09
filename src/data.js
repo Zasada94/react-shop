@@ -1,18 +1,18 @@
-import image1 from "../images/banner1.png";
-import image2 from "../images/banner2.png";
-import image3 from "../images/banner3.png";
+import image1 from "./images/banner1.png";
+import image2 from "./images/banner2.png";
+import image3 from "./images/banner3.png";
 
-import catImage1 from "../images/catImage1.jpg";
-import catImage2 from "../images/catImage2.jpg";
-import catImage3 from "../images/catimage3.jpg";
+import catImage1 from "./images/catImage1.jpg";
+import catImage2 from "./images/catImage2.jpg";
+import catImage3 from "./images/catimage3.jpg";
 
-import popularProduct1 from "../images/popularProduct1.png";
-import popularProduct2 from "../images/popularProduct2.png";
-import popularProduct3 from "../images/popularProduct3.png";
-import popularProduct4 from "../images/popularProduct4.png";
-import popularProduct5 from "../images/popularProduct5.png";
-import popularProduct6 from "../images/popularProduct6.png";
-import popularProduct7 from "../images/popularProduct7.png";
+import popularProduct1 from "./images/popularProduct1.png";
+import popularProduct2 from "./images/popularProduct2.png";
+import popularProduct3 from "./images/popularProduct3.png";
+import popularProduct4 from "./images/popularProduct4.png";
+import popularProduct5 from "./images/popularProduct5.png";
+import popularProduct6 from "./images/popularProduct6.png";
+import popularProduct7 from "./images/popularProduct7.png";
 
 export const sliderItems = [
 	{
