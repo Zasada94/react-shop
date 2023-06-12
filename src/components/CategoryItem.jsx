@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
 	flex: 1;
@@ -11,6 +12,9 @@ const Image = styled.img`
 	height: 100%;
 	object-fit: cover;
 	filter: brightness(80%);
+	${mobile({
+		height: "60vh",
+	})}
 `;
 const Info = styled.div`
 	position: absolute;
@@ -33,7 +37,7 @@ const Button = styled.button`
 	background-color: white;
 	color: gray;
 	cursor: pointer;
-    font-weight: 600;
+	font-weight: 600;
 `;
 
 const CategoryItem = ({ item }) => {
