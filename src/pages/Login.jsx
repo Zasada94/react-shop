@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import loginbg from "../images/loginbg.jpg";
+import regbg from "../images/regbg.jpg";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -9,7 +9,7 @@ const Container = styled.div`
 			rgba(255, 255, 255, 0.5),
 			rgba(255, 255, 255, 0.5)
 		),
-		url(${loginbg});
+		url(${regbg});
 	background-size: cover;
 	display: flex;
 	align-items: center;
