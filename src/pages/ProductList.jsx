@@ -62,7 +62,7 @@ const ProductList = () => {
 		<Container>
 			<Navbar />
 			<Announcement />
-			<Title>T-shirts</Title>
+			<Title>{cat}</Title>
 			<FilterContainer>
 				<Filter>
 					<FilterText>Filter Products:</FilterText>
@@ -87,7 +87,7 @@ const ProductList = () => {
 				</Filter>
 				<Filter>
 					<FilterText>Sort Products:</FilterText>
-					<Select onChange={(e) => setSort(e.target.value)} disabled>
+					<Select onChange={(e) => setSort(e.target.value)}>
 						<Option value="newest">Newest</Option>
 						<Option value="asc">Price (asc)</Option>
 						<Option value="desc">Price (desc)</Option>
