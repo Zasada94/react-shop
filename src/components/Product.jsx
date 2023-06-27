@@ -3,6 +3,14 @@ import CartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchIcon from "@mui/icons-material/SearchOutlined";
 import HeartIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
+import popularProduct1 from "../images/popularProduct1.png";
+import popularProduct2 from "../images/popularProduct2.png";
+import popularProduct3 from "../images/popularProduct3.png";
+import popularProduct4 from "../images/popularProduct4.png";
+import popularProduct5 from "../images/popularProduct5.png";
+import popularProduct6 from "../images/popularProduct6.png";
+import popularProduct7 from "../images/popularProduct7.png";
+
 const Info = styled.div`
 	opacity: 0;
 	width: 100%;
