@@ -76,7 +76,7 @@ const Product = ({ item }) => {
 					<CartIcon />
 				</Icon>
 				<Icon>
-					<Link to={`product/${item._id}`}>
+					<Link to={`/product/${item._id}`}>
 						<SearchIcon />
 					</Link>
 				</Icon>

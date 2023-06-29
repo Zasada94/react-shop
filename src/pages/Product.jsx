@@ -9,6 +9,8 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { useEffect } from "react";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div``;
 
@@ -136,6 +138,7 @@ const Product = () => {
 	const [quantity, setQuantity] = useState(1);
 	const [color, setColor] = useState("");
 	const [size, setSize] = useState("");
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const getProduct = async () => {
@@ -157,10 +160,9 @@ const Product = () => {
 		}
 	};
 
-	const handleClick=()=>{
-		//update cart
-		
-	}
+	const handleClick = () => {
+		dispatch(addProduct({ ...product, quantity, color, size }));
+	};
 
 	return (
 		<Container>
@@ -178,7 +180,7 @@ const Product = () => {
 						<Filter>
 							<FilterTitle>Color</FilterTitle>
 							{product.color?.map((c) => (
-								<FilterColor color={c} key={c} onClick={(c) => setColor(c)} />
+								<FilterColor color={c} key={c} onClick={() => setColor(c)} />
 							))}
 						</Filter>
 						<Filter>
