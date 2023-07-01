@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -7,6 +7,11 @@ import styled from "styled-components";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import { userRequest } from "../requestMethods";
+import { useNavigate } from "react-router-dom";
+
+const KEY = import.meta.env.VITE_APP_STRIPE;
 
 const Container = styled.div``;
 
@@ -167,6 +172,25 @@ const SummaryButton = styled.button`
 
 const Cart = () => {
 	const cart = useSelector((state) => state.cart);
+	const [stripeToken, setStripeToken] = useState(null);
+	const navigate = useNavigate();
+	const data = navigate.state;
+	const onToken = (token) => {
+		setStripeToken(token);
+	};
+
+	useEffect(() => {
+		const makeRequest = async () => {
+			try {
+				const res = await userRequest.post("/checkout/payment", {
+					tokenId: stripeToken.id,
+					amount: 500,
+				});
+				navigate("/success", { state: { data: res.data } });
+			} catch {}
+		};
+		stripeToken && makeRequest();
+	}, [stripeToken, cart.total, navigate]);
 
 	return (
 		<Container>
@@ -233,7 +257,19 @@ const Cart = () => {
 							<SummaryItemText>Total</SummaryItemText>
 							<SummaryItemPrice>{cart.total} PLN</SummaryItemPrice>
 						</SummaryItem>
-						<SummaryButton>CHECKOUT NOW</SummaryButton>
+
+						<StripeCheckout
+							name="Gear&Garm"
+							image="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295389_1280.png"
+							billingAdress
+							shippingAdress
+							description={`Your total is ${cart.total} PLN`}
+							amount={cart.total * 100}
+							token={onToken}
+							stripeKey={KEY}
+						>
+							<SummaryButton>CHECKOUT NOW</SummaryButton>
+						</StripeCheckout>
 					</Summary>
 				</Bottom>
 			</Wrapper>

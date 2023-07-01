@@ -5,6 +5,7 @@ import Product from "./pages/Product";
 import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Success from "./pages/Success";
 
 function App() {
 	const user = true;
@@ -16,6 +17,7 @@ function App() {
 				<Route path="/products/:category" element={<ProductList />}></Route>
 				<Route path="/product/:id" element={<Product />}></Route>
 				<Route path="/cart" element={<Cart />}></Route>
+				<Route path="/success" element={<Success />}></Route>
 				<Route path="/login" element={user ? <Home /> : <Login />}></Route>
 				<Route
 					path="/register"
